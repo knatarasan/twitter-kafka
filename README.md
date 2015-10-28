@@ -16,6 +16,8 @@ Refered documentation :
 
 http://saurzcode.in/2015/02/kafka-producer-using-twitter-stream/
 
+JSON editor 
+http://www.jsoneditoronline.org/
 
 
 
