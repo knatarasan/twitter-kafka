@@ -15,3 +15,28 @@ Eclipse
 Refered documentation : 
 
 http://saurzcode.in/2015/02/kafka-producer-using-twitter-stream/
+
+
+
+
+public class TwitterKafkaProducer {
+
+	private static final String topic = "twitter-topic";   #Topic is mentioned here
+
+	public static void run(String consumerKey, String consumerSecret,
+			String token, String secret) throws InterruptedException {
+
+		Properties properties = new Properties();
+		properties.put("metadata.broker.list", "wn4.kara:6667"); #Localtion of broker
+		properties.put("serializer.class", "kafka.serializer.StringEncoder");
+		properties.put("client.id","camus");
+		ProducerConfig producerConfig = new ProducerConfig(properties);
+		kafka.javaapi.producer.Producer<String, String> producer = new kafka.javaapi.producer.Producer<String, String>(
+				producerConfig);
+
+		BlockingQueue<String> queue = new LinkedBlockingQueue<String>(10000);
+		StatusesFilterEndpoint endpoint = new StatusesFilterEndpoint();
+		// add some track terms
+		endpoint.trackTerms(Lists.newArrayList("twitterapi",
+				"#hadoop"));
+
