@@ -1,5 +1,6 @@
 # twitter-stream
 Twitter-Kafka Data Pipeline
+
 #Requirements :
 Twitter Developer account ( for API Key, Secret etc.)
 Apache Zookeeper ( required for Kafka)
